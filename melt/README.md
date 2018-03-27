@@ -1,4 +1,10 @@
-# MElt Docker container
+## MElt
+
+MElt is a freely available (LGPL) state-of-the-art sequence labeller that is meant to be trained on both an annotated corpus and an external lexicon. It was initially developed by Pascal Denis and Benoît Sagot. Recent evolutions have been carried out by Benoît Sagot. MElt allows for using multiclass Maximum-Entropy Markov models (MEMMs) or multiclass perceptrons (multitrons) as underlying statistical devices. Its output is in the Brown format (one sentence per line, each sentence being a space-separated sequence of annotated words in the word/tag format).
+
+## MElt Docker container
+
+This repository provides a way to contain in a docker container the tool MElt for French Part of Speech tagging.
 
 ## Installation
 
@@ -62,3 +68,6 @@ VPP	   past participle
 VPR	   present participle
 VS	   subjunctive verb form
 ```
+
+## Credits
+- Sagot Benoît et Fišer Darja (2008). Building a free French wordnet from multilingual resources. In Ontolex 2008, Marrakech, Maroc
