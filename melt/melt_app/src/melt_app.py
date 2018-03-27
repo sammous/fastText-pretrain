@@ -7,13 +7,35 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST'])
-def tokenize_and_post():
+@app.route('/pos', methods=['POST'])
+def pos():
     json_data = request.json['data']
     with NamedTemporaryFile(mode='r+w', delete=False) as f:
-        print(json_data)
         path = f.name
-        print(path)
+        f.write(json_data)
+        f.read()
+        ps = subprocess.Popen(('cat', path), stdout=subprocess.PIPE)
+        output = subprocess.check_output(('MElt'), stdin=ps.stdout)
+        f.close()
+    return output
+
+@app.route('/lemma', methods=['POST'])
+def lemma():
+    json_data = request.json['data']
+    with NamedTemporaryFile(mode='r+w', delete=False) as f:
+        path = f.name
+        f.write(json_data)
+        f.read()
+        ps = subprocess.Popen(('cat', path), stdout=subprocess.PIPE)
+        output = subprocess.check_output(('MElt', '-L'), stdin=ps.stdout)
+        f.close()
+    return output
+
+@app.route('/pos_and_tokenize', methods=['POST'])
+def pos_and_tokenize():
+    json_data = request.json['data']
+    with NamedTemporaryFile(mode='r+w', delete=False) as f:
+        path = f.name
         f.write(json_data)
         f.read()
         ps = subprocess.Popen(('cat', path), stdout=subprocess.PIPE)
