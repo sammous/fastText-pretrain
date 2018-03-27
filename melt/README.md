@@ -26,7 +26,7 @@ The listening will be by default 5000.
 
 To test your setup, you can try to `POST` data.
 ```
-curl -H "Content-Type: application/json" -X POST -d '{"data":"Il fait beau dehors. Mais Paris est trop petit pour pouvoir en profiter, et surtout trop cher"}' http://localhost:5000
+curl -H "Content-Type: application/json" -X POST -d '{"data":"Il fait beau dehors. Mais Paris est trop petit pour pouvoir en profiter, et surtout trop cher"}' http://localhost:5000/pos_and_tokenize
 ```
 
 You should get the output :
@@ -35,6 +35,17 @@ You should get the output :
 Il/CLS fait/V beau/ADJ dehors/ADV ./PONCT
 Mais/CC Paris/NPP est/V trop/ADV petit/ADJ pour/P pouvoir/VINF en/CLO profiter/VINF ,/PONCT et/CC surtout/ADV trop/ADV cher/ADJ
 ```
+
+## API Specifications
+
+To interact with the API, you need to `POST` your content in a `JSON` format.
+
+| HTTP METHOD | POST |
+| ------------| ---- |
+| /pos_and_tokenize | Tokenize and POS tagging |
+| /tokenize | Only tokenize |
+| /lemma | Lemmatization |
+
 ## Tagset
 
 ```
