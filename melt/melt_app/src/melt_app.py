@@ -10,12 +10,15 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def tokenize_and_post():
     json_data = request.json['data']
-    f = NamedTemporaryFile(mode='r+w', delete=False)
-    f.write(json_data)
-    f.read()
-    ps = subprocess.Popen(('cat', f.name), stdout=subprocess.PIPE)
-    output = subprocess.check_output(('MElt', '-t'), stdin=ps.stdout)
-    f.close()
+    with NamedTemporaryFile(mode='r+w', delete=False) as f:
+        print(json_data)
+        path = f.name
+        print(path)
+        f.write(json_data)
+        f.read()
+        ps = subprocess.Popen(('cat', path), stdout=subprocess.PIPE)
+        output = subprocess.check_output(('MElt', '-t'), stdin=ps.stdout)
+        f.close()
     return output
 
 

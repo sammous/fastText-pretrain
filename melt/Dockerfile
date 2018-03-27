@@ -27,9 +27,9 @@ RUN cd app && \
     && aclocal  \
     && autoconf \
     && automake -a \
-    && ./configure --prefix=/app\
+    && ./configure \
     && make \
-    && make install
+    && sudo make install
 
 VOLUME /app/data
 
