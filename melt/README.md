@@ -22,6 +22,13 @@ To test your setup, you can try to `POST` data.
 ```
 curl -H "Content-Type: application/json" -X POST -d '{"data":"Il fait beau dehors. Mais Paris est trop petit pour pouvoir en profiter, et surtout trop cher"}' http://localhost:5000
 ```
+
+You should get the output :
+
+```
+Il/CLS fait/V beau/ADJ dehors/ADV ./PONCT
+Mais/CC Paris/NPP est/V trop/ADV petit/ADJ pour/P pouvoir/VINF en/CLO profiter/VINF ,/PONCT et/CC surtout/ADV trop/ADV cher/ADJ
+```
 ## Tagset
 
 ```
