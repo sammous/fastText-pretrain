@@ -1,3 +1,27 @@
+# MElt Docker container
+
+## Installation
+
+To build the image, run the following command :
+
+``` 
+sudo docker build -t melt -f Dockerfile
+```
+
+To run a container :
+
+```
+sudo docker run -d -p 5000:5000 -it melt
+```
+
+The listening will be by default 5000.
+
+## Testing
+
+To test your setup, you can try to `POST` data.
+```
+curl -H "Content-Type: application/json" -X POST -d '{"data":"Il fait beau dehors. Mais Paris est trop petit pour pouvoir en profiter, et surtout trop cher"}' http://localhost:5000
+```
 ## Tagset
 
 ```
